@@ -2,18 +2,18 @@ from __future__ import absolute_import
 import octoprint.plugin
 import gntp.notifier
 class OctoGrowl(octoprint.plugin.StartupPlugin):
-    self.growl = None
+    growl = None
     def on_after_startup(self):
-        self.growl = gntp.notifier.GrowlNotifier(
+        growl = gntp.notifier.GrowlNotifier(
             applicationName = "OctoGrowl",
             notifications = ["New Updates","New Messages"],
             defaultNotifications = ["New Messages"],
             hostname = "10.0.1.16", # Defaults to localhost
             password = "abcd" # Defaults to a blank password
         )
-        self.growl.register()
+        growl.register()
         self._logger.info("Hello!")
-        self.growl.notify(title = "Startup")
+        growl.notify(title = "Startup")
         
 __plugin_name__ = "Hello World"
 __plugin_version__ = "1.0"
