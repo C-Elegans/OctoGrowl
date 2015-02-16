@@ -13,7 +13,11 @@ class OctoGrowl(octoprint.plugin.StartupPlugin):
         )
         growl.register()
         self._logger.info("Hello!")
-        growl.notify(title = "Startup")
+        growl.notify(
+            noteType = "New Updates",
+            title = "There is a new update to download",
+            description = "A longer message description",
+        )
         
 __plugin_name__ = "Hello World"
 __plugin_version__ = "1.0"
